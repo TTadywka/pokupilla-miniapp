@@ -138,7 +138,7 @@ async function pollingLoop() {
   if (!BOT_TOKEN) return;
   while (true) {
     try {
-      const updates = await telegram('getUpdates', { timeout:25, offset, allowed_updates:['message'] });
+      const updates = await telegram('webhook', { timeout:25, offset, allowed_updates:['message'] });
       for (const update of updates) {
         offset = update.update_id + 1;
         try { await handleUpdate(update); } catch (e) { console.error('Update failed:', e.message); }
