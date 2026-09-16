@@ -520,13 +520,13 @@ body {
     flex: 1
 }
 
-@media(min-width:620px) {
-    .products {
-        grid-template-columns: repeat(3, minmax(0, 1fr))
+@media(min-width:620px){
+    .products{
+        grid-template-columns:repeat(3,minmax(0,1fr))
     }
 
-    .phone-art {
-        height: 165px
+    .phone-art{
+        height:165px
     }
 }
 
