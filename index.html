@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
+  <meta name="theme-color" content="#ff6a00" />
+  <title>Покупилла — смартфоны</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://telegram.org/js/telegram-web-app.js?63"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <div class="brand">ПОКУПИЛЛА</div>
+        <div class="subtitle">Смартфоны и техника</div>
+      </div>
+      <button class="icon-btn" id="filterOpen" aria-label="Фильтры">☰</button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <span class="eyebrow">ВИТРИНА</span>
+          <h1>Найди свой<br><span>смартфон</span></h1>
+        </div>
+        <div class="hero-orb">▰</div>
+      </section>
+
+      <div class="search-wrap">
+        <span>⌕</span>
+        <input id="search" type="search" placeholder="Поиск модели или бренда" autocomplete="off" />
+        <button id="clearSearch" class="clear-search" hidden>×</button>
+      </div>
+
+      <div class="toolbar">
+        <div id="resultCount">0 товаров</div>
+        <select id="sort">
+          <option value="default">Сначала актуальные</option>
+          <option value="priceAsc">Цена ↑</option>
+          <option value="priceDesc">Цена ↓</option>
+          <option value="name">Название</option>
+        </select>
+      </div>
+
+      <div id="chips" class="chips"></div>
+      <section id="products" class="products"></section>
+      <div id="empty" class="empty" hidden>
+        <div class="empty-icon">⌕</div>
+        <h2>Ничего не найдено</h2>
+        <p>Измени запрос или сбрось фильтры.</p>
+        <button class="primary-btn" id="resetEmpty">Сбросить фильтры</button>
+      </div>
+    </main>
+  </div>
+
+  <div id="filterSheet" class="sheet-backdrop" hidden>
+    <aside class="sheet" role="dialog" aria-modal="true">
+      <div class="sheet-head"><h2>Фильтры</h2><button id="filterClose" class="icon-btn">×</button></div>
+      <div class="filter-body">
+        <label>Бренд<select id="brandFilter"><option value="">Все бренды</option></select></label>
+        <label>Категория<select id="categoryFilter"><option value="">Все категории</option><option value="smartphone">Смартфоны</option><option value="tablet">Планшеты</option><option value="watch">Часы</option></select></label>
+        <div class="two-col">
+          <label>Цена от<input id="minPrice" type="number" inputmode="numeric" placeholder="0" /></label>
+          <label>Цена до<input id="maxPrice" type="number" inputmode="numeric" placeholder="∞" /></label>
+        </div>
+        <label>Оперативная память<select id="ramFilter"><option value="">Любая</option></select></label>
+        <label>Память<select id="storageFilter"><option value="">Любая</option></select></label>
+        <label>Состояние<select id="conditionFilter"><option value="">Любое</option><option value="new">Новое</option><option value="used">Б/у</option></select></label>
+        <label class="switch-row"><span>eSIM</span><input id="esimFilter" type="checkbox" /><i></i></label>
+      </div>
+      <div class="sheet-actions"><button class="secondary-btn" id="resetFilters">Сбросить</button><button class="primary-btn" id="applyFilters">Показать товары</button></div>
+    </aside>
+  </div>
+
+  <div id="productModal" class="modal-backdrop" hidden>
+    <div class="modal" role="dialog" aria-modal="true">
+      <button class="modal-close icon-btn" id="modalClose">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="catalog.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
